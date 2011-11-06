@@ -16,3 +16,12 @@
 [submodule "fuel/packages/parser"]
 	path = fuel/packages/parser
 	url = http://github.com/fuel/parser.git
+[submodule "fuel/packages/oauth2"]
+	path = fuel/packages/oauth2
+	url = https://github.com/fuel-packages/fuel-oauth2.git
+[submodule "fuel/packages/oauth"]
+	path = fuel/packages/oauth
+	url = https://github.com/fuel-packages/fuel-oauth
+[submodule "fuel/packages/ninjauth"]
+	path = fuel/packages/ninjauth
+	url = https://github.com/philsturgeon/fuel-ninjauth.git
