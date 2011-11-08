@@ -7,4 +7,4 @@ Please note. This is still in development and configuration stage. Once ready fo
 - Authentication (ready set controllers and views for login, register, forgot password, remember, etc…)
 - Social login (FB, Twitter, Google)
 - MySQL database schema to support authentication, Session
-- Template controller setup based on HTML5Boilerplate http://html5boilerplate.com/
+- Template controller and views setup based on HTML5Boilerplate http://html5boilerplate.com/
