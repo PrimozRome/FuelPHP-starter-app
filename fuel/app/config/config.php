@@ -185,7 +185,12 @@ return array(
 		 * );
 		 */
 		'packages'  => array(
-			//'orm',
+			'auth',
+			'oauth',
+			'oauth2',
+			'ninjauth',
+			'email',
+			'orm',
 		),
 
 		/**
