@@ -25,3 +25,6 @@
 [submodule "fuel/packages/ninjauth"]
 	path = fuel/packages/ninjauth
 	url = https://github.com/philsturgeon/fuel-ninjauth.git
+[submodule "fuel/packages/sentry"]
+	path = fuel/packages/sentry
+	url = git@github.com:cartalyst/sentry.git
