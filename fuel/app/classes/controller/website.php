@@ -25,7 +25,6 @@ class Controller_Website extends Controller_Template {
 		
 		$this->template->header = View::forge('home/header');
 		$this->template->footer = View::forge('home/footer');
-
 	}
 
 	/**
