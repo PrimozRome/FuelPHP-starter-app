@@ -14,7 +14,7 @@ return array(
 		/**
 		 * Mail driver (mail, smtp, sendmail)
 		 */
-		'driver'		=> 'mail',
+		'driver'		=> 'sendmail',
 
 		/**
 		 * Whether to send as html, set to null for autodetection.
@@ -77,7 +77,7 @@ return array(
 			'port'		=> 25,
 			'username'	=> '',
 			'password'	=> '',
-			'timeout'	=> 5,
+			'timeout'	=> 15,
 		),
 
 		/**

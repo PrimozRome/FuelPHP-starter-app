@@ -189,6 +189,7 @@ return array(
 			'oauth',
 			'oauth2',
 			'ninjauth',
+			'sentry',
 			'email',
 			'orm',
 		),
