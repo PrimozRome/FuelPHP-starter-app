@@ -1,3 +1,1 @@
-<div class="container">
-	Footer
-</div>
+<p>&copy; Primoz Rome 2011</p>

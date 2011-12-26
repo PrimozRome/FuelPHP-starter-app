@@ -20,7 +20,7 @@ class Controller_Home extends Controller_Website
 	 */
 	public function action_index()
 	{
-		$this->template->content = 'Test';
+		$this->template->content = View::forge('home/home');
 	}
 
 }
