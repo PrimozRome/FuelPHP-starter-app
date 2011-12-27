@@ -22,3 +22,9 @@
 [submodule "fuel/packages/ninjauth"]
 	path = fuel/packages/ninjauth
 	url = https://github.com/happyninjas/fuel-ninjauth.git
+[submodule "fuel/packages/oauth"]
+	path = fuel/packages/oauth
+	url = https://github.com/fuel-packages/fuel-oauth.git
+[submodule "fuel/packages/oauth2"]
+	path = fuel/packages/oauth2
+	url = https://github.com/fuel-packages/fuel-oauth2.git
