@@ -36,4 +36,19 @@ class Model_User extends \Orm\Model
 		return $val;
 	}
 
+	public function get_name()
+	{
+		$data = Auth::get_profile_fields();
+		return $data['firstname'] . ' ' . $data['lastname'];
+	}
+
+	public function get_profile_field($field)
+	{
+		$data = Auth::get_profile_fields();
+		if (isset($data[$field]))
+			return $data[$field];
+		else
+			return null;
+	}
+
 }

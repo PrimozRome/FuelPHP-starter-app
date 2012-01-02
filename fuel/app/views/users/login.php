@@ -1,7 +1,7 @@
 <div class="hero-unit">
 	<?php echo Form::open(array()); ?>
 	<fieldset>
-		<legend>Login form</legend>
+		<legend>Login</legend>
 	
 		<?php if (isset($_GET['destination'])): ?>
 			<?php echo Form::hidden('destination',$_GET['destination']); ?>
@@ -29,7 +29,7 @@
 				<?php echo Form::password('password'); ?>
 				<span class="help-inline"><?php echo $val->errors('password')->get_message(':label cannot be blank'); ?></span>
 				<?php else: ?>
-				<?php echo Form::password('password', array('class'=>'error')); ?>
+				<?php echo Form::password('password'); ?>
 				<?php endif; ?>
 			</div>
 		</div>		
