@@ -11,8 +11,6 @@ return array(
 		),
 		'package' => 
 		array(
-			'sentry' => 1,
-			'ninjauth' => 2,
 		),
 	),
 	'folder' => 'migrations/',

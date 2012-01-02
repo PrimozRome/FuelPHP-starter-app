@@ -2,11 +2,11 @@
 
 namespace Fuel\Migrations;
 
-class Create_ninjausers
+class Create_users
 {
 	public function up()
 	{
-		\DBUtil::create_table('ninjausers', array(
+		\DBUtil::create_table('users', array(
 			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true),
 			'username' => array('constraint' => 50, 'type' => 'varchar'),
 			'password' => array('constraint' => 255, 'type' => 'varchar'),
@@ -22,6 +22,6 @@ class Create_ninjausers
 
 	public function down()
 	{
-		\DBUtil::drop_table('ninjausers');
+		\DBUtil::drop_table('users');
 	}
 }

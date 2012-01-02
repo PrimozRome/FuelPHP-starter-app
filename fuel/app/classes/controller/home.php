@@ -9,7 +9,7 @@
  * @package  app
  * @extends  Controller
  */
-class Controller_Home extends Controller_Website
+class Controller_Home extends Controller_Base
 {
 
 	/**

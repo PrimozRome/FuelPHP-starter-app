@@ -29,7 +29,7 @@ return array(
 	/**
 	 * DB table name for the user table
 	 */
-	'table_name' => 'ninjausers',
+	'table_name' => 'users',
 
 	/**
 	 * Choose which columns are selected, must include: username, password, email, last_login,
@@ -46,16 +46,11 @@ return array(
 	 * Groups as id => array(name => <string>, roles => <array>)
 	 */
 	'groups' => array(
-		/**
-		 * Examples
-		 * ---
-		 *
-		 * -1   => array('name' => 'Banned', 'roles' => array('banned')),
-		 * 0    => array('name' => 'Guests', 'roles' => array()),
-		 * 1    => array('name' => 'Users', 'roles' => array('user')),
-		 * 50   => array('name' => 'Moderators', 'roles' => array('user', 'moderator')),
-		 * 100  => array('name' => 'Administrators', 'roles' => array('user', 'moderator', 'admin')),
-		 */
+		 -1   => array('name' => 'Banned', 'roles' => array('banned')),
+		 0    => array('name' => 'Guests', 'roles' => array()),
+		 1    => array('name' => 'Users', 'roles' => array('user')),
+		 50   => array('name' => 'Moderators', 'roles' => array('user', 'moderator')),
+		 100  => array('name' => 'Administrators', 'roles' => array('user', 'moderator', 'admin')),
 	),
 
 	/**
@@ -85,7 +80,7 @@ return array(
 	/**
 	 * Salt for the login hash
 	 */
-	'login_hash_salt' => 'put_some_salt_in_here',
+	'login_hash_salt' => 'Fuel_PHP_starter_salt_3110',
 
 	/**
 	 * $_POST key for login username

@@ -9,7 +9,7 @@
  * @license    MIT License
  */
 
-class Controller_Website extends Controller_Template {
+class Controller_Base extends Controller_Template {
 
 	public $template = 'templates/template';
 
@@ -22,6 +22,11 @@ class Controller_Website extends Controller_Template {
 	public function before()
 	{
 		parent::before();
+
+		$this->current_user = Auth::check() ? Model_User::find_by_username(Auth::get_screen_name()) : null;
+		$this->logged_in = Auth::check() ? true : false;
+		View::set_global('current_user', $this->current_user);
+		View::set_global('logged_in', $this->current_user);
 		
 		$this->template->header = View::forge('home/header');
 		$this->template->footer = View::forge('home/footer');

@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title><?php echo isset($title) ? ' - '.$title : null; ?></title></title>
+  <title><?php echo isset($title) ? $title : "FuelPHP starter package"; ?></title></title>
   <meta name="description" content="<?php echo isset($description) ? ' - '.$description : null; ?>">
   <meta name="author" content="Primoz Rome">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,9 +22,8 @@
 </head>
 
 <body>
-    <header>
-		<?php echo $header; ?>
-    </header>
+	<?php echo $header; ?>
+
     <div class="container" role="main">
 		<?php echo $content; ?>
 	    <footer>
