@@ -3,8 +3,8 @@
 	<fieldset>
 		<legend>Login</legend>
 	
-		<?php if (isset($_GET['destination'])): ?>
-			<?php echo Form::hidden('destination',$_GET['destination']); ?>
+		<?php if (1==1): ?>
+			<?php echo Form::hidden('destination', Input::referrer()); ?>
 		<?php endif; ?>
 	
 		<?php if (isset($login_error)): ?>
@@ -22,7 +22,7 @@
 				<?php endif; ?>
 			</div>
 		</div>
-		<div class="clearfix <?php if ($val->errors('password')) echo 'error'; ?>">
+		<div class="clearfix <?php if ($val->errors('password')) echo 'error'; ?>" style="margin-bottom:6px;">
 			<label for="password">Password:</label>
 			<div class="input">
 				<?php if ($val->errors('password')): ?>
@@ -31,6 +31,19 @@
 				<?php else: ?>
 				<?php echo Form::password('password'); ?>
 				<?php endif; ?>
+			</div>
+		</div>		
+		<div class="clearfix">
+			<label for="password"></label>
+			<div class="input">
+				<ul class="inputs-list">
+					<li>
+						<label>
+							<?php echo Form::checkbox('remember_me', 'remember_me', Input::post('remember_me', false) ? array('checked'=>'checked') : array()); ?>
+							<span>remember me</span>
+						</label>
+					</li>
+				</ul>
 			</div>
 		</div>		
 		<div class="clearfix">

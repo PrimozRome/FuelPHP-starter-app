@@ -48,19 +48,27 @@ class Controller_Users extends Controller_Base
 
 		if (Input::method() == 'POST')
 		{
-			$val->add('email', 'Email or Username')
-			    ->add_rule('required');
-			$val->add('password', 'Password')
-			    ->add_rule('required');
-
+    		$val->add_field('email', 'Your email', 'required|min_length[3]|max_length[50]');
+		    $val->add_field('password', 'Your password', 'required|min_length[3]|max_length[50]');
+    
 			if ($val->run())
 			{
 				$auth = Auth::instance();
 				
-				if (Auth::check() or $auth->login(Input::post('email'), Input::post('password')))
+				if (Auth::check() or $auth->login($val->validated('email'), $val->validated('password')))
 				{
-					Session::set_flash('notice', 'Welcome, '.$current_user->username);
+					$current_user = Model_User::find_by_username(Auth::get_screen_name());
+					View::set_global('current_user', $current_user);
+					View::set_global('logged_in', $current_user);
+					Session::set_flash('notice', 'Logged in');
 					
+					// if they wish to be remembers, set the cookie and get the hash
+					if (Input::post('remember_me', false))
+					{	
+						$current_user->remember_me = static::remember(sha1(sha1($current_user->password).sha1(Config::get('simpleauth.salt'))));
+						$current_user->save();
+					}					
+									
 					if( Auth::member(100) )
 						Response::redirect('admin');
 					else
@@ -84,7 +92,8 @@ class Controller_Users extends Controller_Base
 	 * @return  void
 	 */
 	public function action_logout()
-	{		
+	{
+		Cookie::delete(Config::get('simpleauth.remember_me.cookie_name'));
 		Auth::logout();
 		Response::redirect('users');
 	}
@@ -97,7 +106,7 @@ class Controller_Users extends Controller_Base
 	 */
 	public function action_signup()
 	{
-	    if ( Auth::check())
+	    if ( Auth::check() )
 	    {
 	        Response::redirect('/');
 	    }
@@ -149,4 +158,16 @@ class Controller_Users extends Controller_Base
 	    $this->template->title = 'Sign Up';
 	    $this->template->content = $view;
 	}
+	
+	/**
+	* Remember User Login
+	* Sets and returns remember me cookie
+	*/
+	protected static function remember($saltedpasswordhash)
+	{
+		$cookie_pass = \Str::random('alnum', 24);
+		$cookie_val = base64_encode($saltedpasswordhash.':'.$cookie_pass.':'.\Session::get('login_hash'));
+		Cookie::set(Config::get('simpleauth.remember_me.cookie_name'), $cookie_val, Config::get('simpleauth.remember_me.expire'));
+		return $cookie_pass;
+	}	
 }

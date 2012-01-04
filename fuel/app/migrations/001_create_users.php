@@ -14,6 +14,7 @@ class Create_users
 			'email' => array('constraint' => 255, 'type' => 'varchar'),
 			'last_login' => array('constraint' => 11, 'type' => 'int'),
 			'login_hash' => array('constraint' => 255, 'type' => 'varchar'),
+			'remember_me' => array('constraint' => 255, 'type' => 'varchar'),
 			'profile_fields' => array('type' => 'text'),
 			'created_at' => array('constraint' => 11, 'type' => 'int'),
 			'updated_at' => array('constraint' => 11, 'type' => 'int'),

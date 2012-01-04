@@ -40,7 +40,7 @@ return array(
 	/**
 	 * This will allow you to use the group & acl driver for non-logged in users
 	 */
-	'guest_login' => true,
+	'guest_login' => false,
 
 	/**
 	 * Groups as id => array(name => <string>, roles => <array>)
@@ -91,4 +91,20 @@ return array(
 	 * $_POST key for login password
 	 */
 	'password_post_key' => 'password',
+
+	/**
+	 * COOKIE key for remember me option
+	 */
+	'remember_me' => array(
+		/**
+		* Cookie name credentials are stored in
+		*/
+		'cookie_name' => 'fuel_starter_remember',
+		
+		/**
+		* How long the cookie should last. (seconds)
+		*/
+		'expire' => 1209600, // 2 weeks
+		),
+
 );
