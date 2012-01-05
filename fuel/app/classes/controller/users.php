@@ -33,7 +33,6 @@ class Controller_Users extends Controller_Base
 		$this->template->title = 'User profile';
 		$this->template->content = View::forge('home/home');
 	}
-
 	
 	public function action_login()
 	{
@@ -61,14 +60,7 @@ class Controller_Users extends Controller_Base
 					View::set_global('current_user', $current_user);
 					View::set_global('logged_in', $current_user);
 					Session::set_flash('notice', 'Logged in');
-					
-					// if they wish to be remembers, set the cookie and get the hash
-					if (Input::post('remember_me', false))
-					{	
-						$current_user->remember_me = static::remember(sha1(sha1($current_user->password).sha1(Config::get('simpleauth.salt'))));
-						$current_user->save();
-					}					
-									
+														
 					if( Auth::member(100) )
 						Response::redirect('admin');
 					else
@@ -93,7 +85,7 @@ class Controller_Users extends Controller_Base
 	 */
 	public function action_logout()
 	{
-		Cookie::delete(Config::get('simpleauth.remember_me.cookie_name'));
+		//Cookie::delete(Config::get('simpleauth.remember_me.cookie_name'));
 		Auth::logout();
 		Response::redirect('users');
 	}
@@ -158,16 +150,4 @@ class Controller_Users extends Controller_Base
 	    $this->template->title = 'Sign Up';
 	    $this->template->content = $view;
 	}
-	
-	/**
-	* Remember User Login
-	* Sets and returns remember me cookie
-	*/
-	protected static function remember($saltedpasswordhash)
-	{
-		$cookie_pass = \Str::random('alnum', 24);
-		$cookie_val = base64_encode($saltedpasswordhash.':'.$cookie_pass.':'.\Session::get('login_hash'));
-		Cookie::set(Config::get('simpleauth.remember_me.cookie_name'), $cookie_val, Config::get('simpleauth.remember_me.expire'));
-		return $cookie_pass;
-	}	
 }
