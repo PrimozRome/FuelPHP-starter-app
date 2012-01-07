@@ -5,8 +5,8 @@
 return array(
 	
 	'urls' => array(
-		'registration' => 'auth/register',
-		'login' => 'auth/login',
+		'registration' => 'users/signup',
+		'login' => 'users/login',
 		'callback' => 'auth/callback',
 		
 		'registered' => 'auth/account',
@@ -24,12 +24,12 @@ return array(
 		'facebook' => array(
 			'id' => '182415161842191',
 			'secret' => '61e004359180d065af72d4eee5ae3595',
-			'scope' => 'email,offline_access',
+			'scope' => 'email,offline_access,publish_stream',
 		),
 		
 		'twitter' => array(
-			'key' => '',
-			'secret' => '',
+			'key' => 'rkT7Ow9rSBUgy3m81PHzA',
+			'secret' => 'IeUiU3fAOmbO0KFYA2AogMd4eqnsuM7hrupnYezq8',
 		),
 
 		'dropbox' => array(

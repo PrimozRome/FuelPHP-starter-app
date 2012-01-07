@@ -102,6 +102,9 @@ class Controller_Users extends Controller_Base
 	    {
 	        Response::redirect('/');
 	    }
+
+		$user_hash = Session::get('ninjauth.user');
+		$authentication = Session::get('ninjauth.authentication');
 	    
 	    $val = Validation::forge();
 	    $val->add_field('firstname', 'Your name', 'required|min_length[3]|max_length[50]');
@@ -110,7 +113,9 @@ class Controller_Users extends Controller_Base
 	    $val->add_field('password', 'Your password', 'required|min_length[3]|max_length[255]');
 	    $val->add_field('password_confirm', 'Confirm password', 'required|match_field[password]|min_length[3]|max_length[255]');
 	    
-		$view = View::forge('users/signup', array('val' => $val));   
+		$view = View::forge('users/signup', array('val' => $val));
+		$view->user_hash = $user_hash;
+		$view->authentication = $authentication;
 	    
 	    if ( $val->run() )
 	    {
@@ -150,4 +155,5 @@ class Controller_Users extends Controller_Base
 	    $this->template->title = 'Sign Up';
 	    $this->template->content = $view;
 	}
+		
 }

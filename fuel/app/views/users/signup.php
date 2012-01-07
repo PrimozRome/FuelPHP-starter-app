@@ -10,7 +10,7 @@
 				<?php echo Form::input('firstname', Input::post('firstname'), array('class'=>'error')); ?>
 				<span class="help-inline"><?php echo $val->errors('firstname')->get_message('Enter your name'); ?></span>
 				<?php else: ?>
-				<?php echo Form::input('firstname', Input::post('firstname')); ?>
+				<?php echo Form::input('firstname', Input::post('firstname') ?: Arr::get($user_hash, 'name')); ?>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -32,7 +32,7 @@
 				<?php echo Form::input('email', Input::post('email'), array('class'=>'error')); ?>
 				<span class="help-inline"><?php echo $val->errors('email')->get_message('You must provide a username or email'); ?></span>
 				<?php else: ?>
-				<?php echo Form::input('email', Input::post('email')); ?>
+				<?php echo Form::input('email', Input::post('email') ?: Arr::get($user_hash, 'email')); ?>
 				<?php endif; ?>
 			</div>
 		</div>
