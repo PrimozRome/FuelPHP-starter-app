@@ -13,9 +13,6 @@
 [submodule "fuel/packages/orm"]
 	path = fuel/packages/orm
 	url = http://github.com/fuel/orm.git
-[submodule "fuel/packages/parser"]
-	path = fuel/packages/parser
-	url = http://github.com/fuel/parser.git
 [submodule "fuel/packages/ninjauth"]
 	path = fuel/packages/ninjauth
 	url = https://github.com/happyninjas/fuel-ninjauth.git
